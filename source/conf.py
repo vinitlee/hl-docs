@@ -1,7 +1,7 @@
-project = 'Hyprland Lua API'
-author = 'Generated from Hyprland Lua stub and source'
+project = "Hyprland Lua API"
 extensions = []
-templates_path = ['_templates']
+templates_path = ["_templates"]
 exclude_patterns = []
-html_theme = 'furo'
-html_static_path = ['_static']
+html_theme = "alabaster"
+primary_domain = "py"
+default_role = "any"
