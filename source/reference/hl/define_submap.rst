@@ -1,42 +1,56 @@
 hl.define_submap
 ================
 
-.. function:: hl.define_submap(name: string, reset_or_fn: string|function, fn?: function)
+.. function:: hl.define_submap(name, fn)
+.. function:: hl.define_submap(name, reset, fn)
 
-   Define submap.
+   Define a named keybind submap.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.define_submap(name: string, reset_or_fn: string|function, fn?: function): nil
+   hl.define_submap(name: string, fn: function): nil
+   hl.define_submap(name: string, reset: string, fn: function): nil
 
 Parameters
 ----------
 
 name : string
-   Name.
+   Submap name.
 
-reset_or_fn : string | function
-   Reset or fn.
+reset : string, optional
+   Reset submap name used for binds defined inside this submap.
 
-fn : function, optional
-   Fn.
+fn : function
+   Function called while the submap is active during config evaluation. Binds
+   created inside this callback are assigned to the submap.
 
 Returns
 -------
 
 nil
-   This function does not return a value.
+   This function defines the submap and does not return a value.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.define_submap("resize", function()
+       hl.bind("H", hl.dsp.window.resize({ x = -20, y = 0, relative = true }))
+       hl.bind("L", hl.dsp.window.resize({ x = 20, y = 0, relative = true }))
+       hl.bind("Escape", hl.dsp.submap("reset"))
+   end)
+
+.. TODO: Confirm whether ``reset`` should usually be ``reset`` or the previous submap name.
 
 See also
 --------
 
-:class:`HL.API`
-   Namespace or API object containing this function.
+:func:`hl.bind`
+   Register binds inside a submap.
+
+:func:`hl.dsp.submap`
+   Create a dispatcher that changes submaps.

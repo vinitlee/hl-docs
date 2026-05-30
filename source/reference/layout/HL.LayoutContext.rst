@@ -23,39 +23,27 @@ Attributes
 Methods
 -------
 
-.. method:: HL.LayoutContext.grid_cell(i: integer, cols: integer, rows?: integer)
+.. method:: grid_cell(i, cols, rows=None)
 
-   Grid cell.
+   Return a grid cell box from the layout area.
 
-   .. TODO: Document method parameters.
+.. method:: column(i, n)
 
-   :returns: :class:`HL.Box`
+   Return the ``i`` th column from ``n`` columns.
 
-.. method:: HL.LayoutContext.column(i: integer, n: integer)
+.. method:: row(i, n)
 
-   Column.
+   Return the ``i`` th row from ``n`` rows.
 
-   .. TODO: Document method parameters.
+.. method:: split(box, side, ratio)
 
-   :returns: :class:`HL.Box`
+   Split ``box`` and return the requested side.
 
-.. method:: HL.LayoutContext.row(i: integer, n: integer)
+   Parameters
+   ----------
 
-   Row.
+   side : string
+      Accepted values include ``left``, ``right``, ``top``, ``bottom``, ``up``, and ``down``.
 
-   .. TODO: Document method parameters.
-
-   :returns: :class:`HL.Box`
-
-.. method:: HL.LayoutContext.split(box: HL.Box, side: 'left'|'right'|'top'|'bottom'|'up'|'down', ratio: number)
-
-   Split.
-
-   .. TODO: Document method parameters.
-
-   :returns: :class:`HL.Box`
-
-See also
---------
-
-.. TODO: Add related functions and types.
+   ratio : number
+      Split ratio.

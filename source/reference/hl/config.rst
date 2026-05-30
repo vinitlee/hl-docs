@@ -1,9 +1,14 @@
 hl.config
 =========
 
-.. function:: hl.config(config: table)
+.. function:: hl.config(config)
 
-   Set Hyprland configuration values.
+   Set Hyprland configuration values from a nested Lua table.
+
+   ``hl.config`` walks the table recursively. Nested keys are joined with
+   dots, so ``{ general = { gaps_in = 5 } }`` sets
+   ``general.gaps_in``. If a full dotted key exists, it is treated as the
+   target config key; otherwise nested tables are traversed.
 
 Signature
 ---------
@@ -16,21 +21,76 @@ Parameters
 ----------
 
 config : table
-   Config.
+   Nested configuration table. Leaf fields must correspond to valid
+   :class:`HL.ConfigKey` entries.
 
 Returns
 -------
 
 nil
-   This function does not return a value.
+   This function applies configuration and does not return a value.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+Set common options using nested tables:
+
+.. code-block:: lua
+
+   hl.config({
+       general = {
+           gaps_in = 5,
+           gaps_out = 12,
+           border_size = 2,
+           layout = "dwindle",
+       },
+       input = {
+           kb_layout = "us",
+           repeat_rate = 35,
+           repeat_delay = 250,
+       },
+   })
+
+Set a deeply nested value:
+
+.. code-block:: lua
+
+   hl.config({
+       decoration = {
+           blur = {
+               enabled = true,
+               size = 8,
+               passes = 2,
+           },
+       },
+   })
+
+Use a dotted key directly:
+
+.. code-block:: lua
+
+   hl.config({
+       ["general.gaps_in"] = 5,
+       ["decoration.blur.enabled"] = true,
+   })
+
+Notes
+-----
+
+Unknown keys are reported as configuration errors. During dynamic parsing,
+changing a value can schedule the appropriate Hyprland refresh.
+
+.. TODO: Add a short section explaining exact value coercion for config value
+   types once the individual LuaConfig* parsers are documented.
 
 See also
 --------
 
-:class:`HL.API`
-   Namespace or API object containing this function.
+:class:`HL.ConfigKey`
+   Known configuration key names.
+
+:class:`HL.ConfigValueTypes`
+   Type mapping for known configuration values.
+
+:func:`hl.get_config`
+   Read a configuration value by key.

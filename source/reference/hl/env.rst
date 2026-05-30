@@ -1,38 +1,45 @@
 hl.env
 ======
 
-.. function:: hl.env(...)
+.. function:: hl.env(name: string, value: string, dbus?: boolean)
 
-   Env.
+   Set an environment variable, optionally importing it into the D-Bus activation environment.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.env(...): any
+   hl.env(name: string, value: string, dbus?: boolean): nil
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+name : string
+   Environment variable name. Must not be empty.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+value : string
+   Environment variable value.
+
+dbus : boolean, optional
+   If true, also run ``dbus-update-activation-environment --systemd`` for this variable.
 
 Returns
 -------
 
-result : any
-   Return value.
+nil
+   This function mutates the environment and does not return a value.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
 
-See also
---------
+   hl.env("XCURSOR_SIZE", "24")
+   hl.env("QT_QPA_PLATFORM", "wayland", true)
 
-:class:`HL.API`
-   Namespace or API object containing this function.
+Notes
+-----
+
+On first launch, the D-Bus import command is queued as an exec-once command. Later dynamic parses spawn the command immediately when ``dbus`` is true.
+

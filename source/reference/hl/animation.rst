@@ -1,38 +1,84 @@
 hl.animation
 ============
 
-.. function:: hl.animation(...)
+.. function:: hl.animation(spec)
 
-   Animation.
+   Configure an animation leaf.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.animation(...): any
+   hl.animation(spec: table): nil
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+spec : table
+   Animation configuration table.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+Required fields
+---------------
+
+leaf : string
+   Animation tree leaf to configure. The leaf must exist.
+
+enabled : boolean
+   Whether the animation leaf is enabled. If ``false``, speed and curve fields
+   are ignored and the leaf is disabled.
+
+Conditional fields
+------------------
+
+speed : number
+   Required when ``enabled`` is true. Must be greater than ``0`` and no more
+   than ``100``.
+
+bezier : string, optional
+   Name of a registered bezier curve. Exactly one of ``bezier`` or ``spring``
+   is required when ``enabled`` is true.
+
+spring : string, optional
+   Name of a registered spring curve. Exactly one of ``bezier`` or ``spring``
+   is required when ``enabled`` is true.
+
+style : string, optional
+   Animation style string. Hyprland validates the style against the selected
+   animation leaf.
 
 Returns
 -------
 
-result : any
-   Return value.
+nil
+   This function configures an animation leaf and does not return a value.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+Configure an animation with a bezier curve:
+
+.. code-block:: lua
+
+   hl.animation({
+       leaf = "windows",
+       enabled = true,
+       speed = 4,
+       bezier = "ease_out",
+       style = "slide",
+   })
+
+Disable an animation leaf:
+
+.. code-block:: lua
+
+   hl.animation({
+       leaf = "border",
+       enabled = false,
+   })
 
 See also
 --------
 
-:class:`HL.API`
-   Namespace or API object containing this function.
+:func:`hl.curve`
+   Register bezier and spring curves.

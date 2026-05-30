@@ -167,39 +167,21 @@ Attributes
 Methods
 -------
 
-.. method:: HL.Keybind.is_enabled(...)
+.. method:: is_enabled()
 
-   Is enabled.
+   Return whether the keybind is enabled.
 
-   .. TODO: Document method parameters.
+.. method:: set_enabled(enabled)
 
-   :returns: any
+   Enable or disable the keybind.
 
-.. method:: HL.Keybind.remove(...)
+   Parameters
+   ----------
 
-   Remove.
+   enabled : boolean
+      New enabled state.
 
-   .. TODO: Document method parameters.
+.. method:: remove()
+.. method:: unbind()
 
-   :returns: any
-
-.. method:: HL.Keybind.set_enabled(...)
-
-   Set enabled.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Keybind.unbind(...)
-
-   Unbind.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-See also
---------
-
-.. TODO: Add related functions and types.
+   Remove the keybind.

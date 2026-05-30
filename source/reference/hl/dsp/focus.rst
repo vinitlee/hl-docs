@@ -5,9 +5,6 @@ hl.dsp.focus
 
    Create a focus dispatcher.
 
-   ``hl.dsp.focus`` returns an :class:`HL.Dispatcher` that can be passed to
-   :func:`hl.bind` or executed with :func:`hl.dispatch`.
-
 Signature
 ---------
 
@@ -19,8 +16,7 @@ Parameters
 ----------
 
 spec : table
-   Focus operation table. Must contain one of ``direction``, ``monitor``,
-   ``workspace``, ``window``, ``urgent_or_last``, or ``last``.
+   Focus operation table. Must contain one recognized focus field.
 
 Accepted fields
 ---------------
@@ -35,14 +31,9 @@ direction : string, optional
    * ``up``
    * ``down``
 
-   Short aliases:
+   Short aliases are also accepted by the shared direction parser.
 
-   * ``l`` → ``left``
-   * ``r`` → ``right``
-   * ``u`` → ``up``
-   * ``d`` → ``down``
-   * ``t`` → ``up``
-   * ``b`` → ``down``
+   .. TODO: Confirm exact short aliases accepted by ``parseDirectionStr``.
 
 monitor : :class:`HL.MonitorSelector`, optional
    Focus the selected monitor.
@@ -73,53 +64,19 @@ dispatcher : :class:`HL.Dispatcher`
 Examples
 --------
 
-Move focus left:
-
 .. code-block:: lua
 
-   hl.bind("SUPER, H", hl.dsp.focus({
+   hl.bind("SUPER + H", hl.dsp.focus({
        direction = "left",
    }))
 
-Focus a monitor:
-
-.. code-block:: lua
-
-   hl.bind("SUPER, M", hl.dsp.focus({
+   hl.dispatch(hl.dsp.focus({
        monitor = "DP-1",
    }))
 
-Focus a workspace:
-
-.. code-block:: lua
-
-   hl.bind("SUPER, 3", hl.dsp.focus({
-       workspace = 3,
-   }))
-
-Focus a workspace on the current monitor:
-
-.. code-block:: lua
-
-   hl.bind("SUPER SHIFT, 3", hl.dsp.focus({
+   hl.dispatch(hl.dsp.focus({
        workspace = 3,
        on_current_monitor = true,
-   }))
-
-Focus a window:
-
-.. code-block:: lua
-
-   hl.dispatch(hl.dsp.focus({
-       window = "class:firefox",
-   }))
-
-Focus urgent or last window:
-
-.. code-block:: lua
-
-   hl.dispatch(hl.dsp.focus({
-       urgent_or_last = true,
    }))
 
 Notes
@@ -128,8 +85,6 @@ Notes
 If multiple recognized fields are present, the first matching field in this
 order is used: ``direction``, ``monitor``, ``workspace``, ``window``,
 ``urgent_or_last``, ``last``.
-
-.. TODO: This behavior is source-derived. Re-check against future Hyprland Lua changes.
 
 See also
 --------
@@ -141,16 +96,4 @@ See also
    Bind a dispatcher to a key.
 
 :func:`hl.dispatch`
-   Execute a dispatcher.
-
-:class:`HL.MonitorSelector`
-   Selector accepted by the ``monitor`` field.
-
-:class:`HL.WorkspaceSelector`
-   Selector accepted by the ``workspace`` field.
-
-:class:`HL.WindowSelector`
-   Selector accepted by the ``window`` field.
-
-:class:`HL.DspNamespace`
-   Namespace containing dispatcher creation functions.
+   Execute a dispatcher immediately.

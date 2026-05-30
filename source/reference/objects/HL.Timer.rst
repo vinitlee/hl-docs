@@ -8,31 +8,20 @@ HL.Timer
 Methods
 -------
 
-.. method:: HL.Timer.is_enabled(...)
+.. method:: is_enabled()
 
-   Is enabled.
+   Return whether the timer is enabled.
 
-   .. TODO: Document method parameters.
+.. method:: set_enabled(enabled)
 
-   :returns: any
+   Enable or disable the timer.
 
-.. method:: HL.Timer.set_enabled(...)
+.. method:: set_timeout(timeout)
 
-   Set enabled.
+   Change the timer timeout.
 
-   .. TODO: Document method parameters.
+   Parameters
+   ----------
 
-   :returns: any
-
-.. method:: HL.Timer.set_timeout(...)
-
-   Set timeout.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-See also
---------
-
-.. TODO: Add related functions and types.
+   timeout : integer
+      Timeout in milliseconds.

@@ -8,151 +8,44 @@ HL.Notification
 Methods
 -------
 
-.. method:: HL.Notification.dismiss(...)
+.. method:: dismiss()
 
-   Dismiss.
+   Dismiss the notification.
 
-   .. TODO: Document method parameters.
+.. method:: pause()
+.. method:: resume()
+.. method:: set_paused(paused)
 
-   :returns: any
+   Control notification pause state.
 
-.. method:: HL.Notification.get_color(...)
+.. method:: is_alive()
+.. method:: is_paused()
 
-   Get color.
+   Query notification state.
 
-   .. TODO: Document method parameters.
+.. method:: get_text()
+.. method:: set_text(text)
 
-   :returns: any
+   Get or set notification text.
 
-.. method:: HL.Notification.get_elapsed(...)
+.. method:: get_timeout()
+.. method:: set_timeout(timeout)
 
-   Get elapsed.
+   Get or set timeout.
 
-   .. TODO: Document method parameters.
+.. method:: get_color()
+.. method:: set_color(color)
 
-   :returns: any
+   Get or set color.
 
-.. method:: HL.Notification.get_elapsed_since_creation(...)
+.. method:: get_icon()
+.. method:: set_icon(icon)
 
-   Get elapsed since creation.
+   Get or set icon.
 
-   .. TODO: Document method parameters.
+.. method:: get_font_size()
+.. method:: set_font_size(size)
 
-   :returns: any
+   Get or set font size.
 
-.. method:: HL.Notification.get_font_size(...)
-
-   Get font size.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.get_icon(...)
-
-   Get icon.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.get_text(...)
-
-   Get text.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.get_timeout(...)
-
-   Get timeout.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.is_alive(...)
-
-   Is alive.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.is_paused(...)
-
-   Is paused.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.pause(...)
-
-   Pause.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.resume(...)
-
-   Resume.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.set_color(...)
-
-   Set color.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.set_font_size(...)
-
-   Set font size.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.set_icon(...)
-
-   Set icon.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.set_paused(...)
-
-   Set paused.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.set_text(...)
-
-   Set text.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-.. method:: HL.Notification.set_timeout(...)
-
-   Set timeout.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-See also
---------
-
-.. TODO: Add related functions and types.
+.. TODO: Add precise return types for getter methods from LuaNotification.cpp.

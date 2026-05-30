@@ -1,9 +1,9 @@
 hl.device
 =========
 
-.. function:: hl.device(spec: HL.DeviceSpec)
+.. function:: hl.device(spec)
 
-   Device.
+   Configure a named input device.
 
 Signature
 ---------
@@ -16,21 +16,33 @@ Parameters
 ----------
 
 spec : :class:`HL.DeviceSpec`
-   Spec.
+   Device configuration table. ``name`` is required.
 
 Returns
 -------
 
 nil
-   This function does not return a value.
+   This function stores device configuration and schedules an input-device refresh.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.device({
+       name = "logitech-usb-receiver",
+       sensitivity = -0.2,
+       natural_scroll = true,
+   })
+
+Notes
+-----
+
+Spaces in ``name`` are converted to hyphens before the device configuration is
+stored. Unknown fields are reported as configuration errors.
 
 See also
 --------
 
-:class:`HL.API`
-   Namespace or API object containing this function.
+:class:`HL.DeviceSpec`
+   Accepted device configuration fields.

@@ -1,36 +1,75 @@
 hl.permission
 =============
 
-.. function:: hl.permission(spec: HL.PermissionSpec)
+.. function:: hl.permission(binary, type, mode)
+.. function:: hl.permission(spec)
 
-   Permission.
+   Add a dynamic permission rule.
 
 Signature
 ---------
 
 .. code-block:: text
 
+   hl.permission(binary: string, type: string, mode: string): nil
    hl.permission(spec: HL.PermissionSpec): nil
 
 Parameters
 ----------
 
+binary : string
+   Binary name or target. Must not be empty.
+
+type : string
+   Permission type.
+
+   Accepted values:
+
+   * ``screencopy``
+   * ``cursorpos``
+   * ``plugin``
+   * ``keyboard``
+   * ``keeb`` alias for ``keyboard``
+
+mode : string
+   Permission mode.
+
+   Accepted values:
+
+   * ``ask``
+   * ``allow``
+   * ``deny``
+
 spec : :class:`HL.PermissionSpec`
-   Spec.
+   Table form. ``binary`` may also be written as ``target``.
 
 Returns
 -------
 
 nil
-   This function does not return a value.
+   This function registers the permission rule and does not return a value.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+Positional form:
+
+.. code-block:: lua
+
+   hl.permission("grim", "screencopy", "allow")
+
+Table form:
+
+.. code-block:: lua
+
+   hl.permission({
+       binary = "my-plugin",
+       type = "plugin",
+       mode = "ask",
+   })
 
 See also
 --------
 
-:class:`HL.API`
-   Namespace or API object containing this function.
+:class:`HL.PermissionSpec`
+   Table form accepted by this function.

@@ -12,7 +12,7 @@ HL.MonitorSpec
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        output = string,

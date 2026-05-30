@@ -3,53 +3,57 @@ HL.GestureSpec
 
 .. class:: HL.GestureSpec
 
-   Table describing a GestureSpec value.
+   Table accepted by :func:`hl.gesture`.
 
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        fingers = integer,
        direction = string,
-       action = string,
-       mods? = string,
-       scale? = number,
-       mode? = string,
-       zoom_level? = number,
-       workspace_name? = string,
-       disable_inhibit? = boolean,
+       action = string | function,
+       mods = string?,
+       scale = number?,
+       mode = string?,
+       zoom_level = string?,
+       workspace_name = string?,
+       disable_inhibit = boolean?,
    }
 
 Fields
 ------
 
 fingers : integer
-   Fingers.
+   Number of fingers. Must be between ``2`` and ``9``.
 
 direction : string
-   Direction.
+   Direction string parsed by Hyprland's gesture manager.
 
-action : string
-   Action.
+action : string or function
+   Gesture action or callback. See :func:`hl.gesture` for accepted action names.
 
 mods : string, optional
-   Mods.
+   Modifier string.
 
 scale : number, optional
-   Scale.
+   Gesture delta scale. Must be between ``0.1`` and ``10``.
 
 mode : string, optional
-   Mode.
+   Action-specific mode string.
 
-zoom_level : number, optional
-   Zoom level.
+zoom_level : string, optional
+   Action-specific zoom level string.
 
 workspace_name : string, optional
-   Workspace name.
+   Workspace name for the ``special`` action.
 
 disable_inhibit : boolean, optional
-   Disable inhibit.
+   Disable inhibition handling for this gesture.
 
-.. TODO: Replace generic field summaries with source-checked behavior.
+Used by
+-------
+
+:func:`hl.gesture`
+   Register or remove a gesture.

@@ -1,38 +1,47 @@
 hl.dsp.workspace.move
 =====================
 
-.. function:: hl.dsp.workspace.move(...)
+.. function:: hl.dsp.workspace.move(spec: table)
 
-   Move.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.workspace.move(...): HL.Dispatcher
+   hl.dsp.workspace.move(spec: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+monitor : :class:`HL.MonitorSelector`
+   Destination monitor.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+workspace : :class:`HL.WorkspaceSelector`, optional
+   Workspace to move. If omitted, moves the current workspace.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.workspace.move({ workspace = 3, monitor = "DP-1" }))
 
 See also
 --------
 
-:class:`HL.DspWorkspaceNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

@@ -1,38 +1,47 @@
 hl.dsp.workspace.swap_monitors
 ==============================
 
-.. function:: hl.dsp.workspace.swap_monitors(...)
+.. function:: hl.dsp.workspace.swap_monitors(spec: table)
 
-   Swap monitors.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.workspace.swap_monitors(...): HL.Dispatcher
+   hl.dsp.workspace.swap_monitors(spec: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+monitor1 : :class:`HL.MonitorSelector`
+   First monitor.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+monitor2 : :class:`HL.MonitorSelector`
+   Second monitor.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.workspace.swap_monitors({ monitor1 = "DP-1", monitor2 = "DP-2" }))
 
 See also
 --------
 
-:class:`HL.DspWorkspaceNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

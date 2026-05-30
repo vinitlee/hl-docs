@@ -8,7 +8,7 @@ HL.Vec2
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        x = number,

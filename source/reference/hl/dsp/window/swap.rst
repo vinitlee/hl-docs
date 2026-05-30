@@ -1,38 +1,57 @@
 hl.dsp.window.swap
 ==================
 
-.. function:: hl.dsp.window.swap(...)
+.. function:: hl.dsp.window.swap(spec: table)
 
-   Swap.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.window.swap(...): HL.Dispatcher
+   hl.dsp.window.swap(spec: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+direction : string, optional
+   Swap in a direction.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+target, with, other : :class:`HL.WindowSelector`, optional
+   Target window selector. These are aliases; the first present one is used.
+
+next : boolean, optional
+   Swap with next window.
+
+prev : boolean, optional
+   Swap with previous window.
+
+window : :class:`HL.WindowSelector`, optional
+   Source window.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.window.swap({ direction = "left" }))
+   hl.dispatch(hl.dsp.window.swap({ with = "class:firefox" }))
 
 See also
 --------
 
-:class:`HL.DspWindowNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

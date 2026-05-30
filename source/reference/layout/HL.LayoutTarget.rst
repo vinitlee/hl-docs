@@ -29,23 +29,13 @@ Attributes
 Methods
 -------
 
-.. method:: HL.LayoutTarget.place(box: HL.Box)
+.. method:: place(box)
+.. method:: set_box(box)
 
-   Place.
+   Place this layout target into ``box``.
 
-   .. TODO: Document method parameters.
+   Parameters
+   ----------
 
-   :returns: nil
-
-.. method:: HL.LayoutTarget.set_box(box: HL.Box)
-
-   Set box.
-
-   .. TODO: Document method parameters.
-
-   :returns: nil
-
-See also
---------
-
-.. TODO: Add related functions and types.
+   box : :class:`HL.Box`
+      Target geometry.

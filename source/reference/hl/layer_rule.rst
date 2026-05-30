@@ -1,9 +1,9 @@
 hl.layer_rule
 =============
 
-.. function:: hl.layer_rule(spec: HL.LayerRuleSpec)
+.. function:: layer_rule(spec)
 
-   Layer rule.
+   Register a layer rule.
 
 Signature
 ---------
@@ -16,21 +16,34 @@ Parameters
 ----------
 
 spec : :class:`HL.LayerRuleSpec`
-   Spec.
+   Rule table.
 
 Returns
 -------
 
-result : :class:`HL.LayerRule`
-   Return value.
+rule : :class:`HL.LayerRule`
+   Runtime rule object.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.layer_rule({
+       name = "rofi-no-anim",
+       match = { namespace = "rofi" },
+       no_anim = true,
+   })
+
+Notes
+-----
+
+Match values may be strings or booleans. Named rules are reused on later calls.
+
+.. TODO: Expand known static and dynamic rule effect descriptions from rule engine metadata.
 
 See also
 --------
 
-:class:`HL.API`
-   Namespace or API object containing this function.
+:class:`HL.LayerRuleSpec`
+   Input table accepted by this function.

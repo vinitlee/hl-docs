@@ -8,23 +8,16 @@ HL.WindowRule
 Methods
 -------
 
-.. method:: HL.WindowRule.is_enabled(...)
+.. method:: is_enabled()
 
-   Is enabled.
+   Return whether the rule is enabled.
 
-   .. TODO: Document method parameters.
+.. method:: set_enabled(enabled)
 
-   :returns: any
+   Enable or disable the rule.
 
-.. method:: HL.WindowRule.set_enabled(...)
+   Parameters
+   ----------
 
-   Set enabled.
-
-   .. TODO: Document method parameters.
-
-   :returns: any
-
-See also
---------
-
-.. TODO: Add related functions and types.
+   enabled : boolean
+      New enabled state.

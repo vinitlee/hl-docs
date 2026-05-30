@@ -1,38 +1,38 @@
 hl.dsp.exit
 ===========
 
-.. function:: hl.dsp.exit(...)
+.. function:: hl.dsp.exit()
 
-   Exit.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.exit(...): HL.Dispatcher
-
-Parameters
-----------
-
-... : any
-   Arguments accepted by this function.
-
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+   hl.dsp.exit(): HL.Dispatcher
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.bind("SUPER + SHIFT + E", hl.dsp.exit())
 
 See also
 --------
 
-:class:`HL.DspNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

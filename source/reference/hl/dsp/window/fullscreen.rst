@@ -1,38 +1,44 @@
 hl.dsp.window.fullscreen
 ========================
 
-.. function:: hl.dsp.window.fullscreen(...)
+.. function:: hl.dsp.window.fullscreen(spec=None)
 
-   Fullscreen.
+   Create a window fullscreen dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.window.fullscreen(...): HL.Dispatcher
+   hl.dsp.window.fullscreen(spec?: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+spec : table, optional
+   Fullscreen options.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+mode : string, optional
+   Accepted values are ``fullscreen``, ``maximized``, ``0`` for fullscreen, and
+   ``1`` for maximized. Defaults to ``fullscreen``.
+
+action : string, optional
+   Accepted values are ``toggle``, ``set``, and ``unset``. Defaults to
+   ``toggle``.
+
+window : :class:`HL.WindowSelector`, optional
+   Target window.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
 
-See also
---------
-
-:class:`HL.DspWindowNamespace`
-   Namespace or API object containing this function.
+   hl.dispatch(hl.dsp.window.fullscreen())
+   hl.dispatch(hl.dsp.window.fullscreen({ mode = "maximized", action = "set" }))

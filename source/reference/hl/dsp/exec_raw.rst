@@ -1,38 +1,44 @@
 hl.dsp.exec_raw
 ===============
 
-.. function:: hl.dsp.exec_raw(...)
+.. function:: hl.dsp.exec_raw(cmd: string)
 
-   Exec raw.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.exec_raw(...): HL.Dispatcher
+   hl.dsp.exec_raw(cmd: string): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
-
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+cmd : string
+   Raw command string to spawn.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.exec_raw("notify-send hello"))
 
 See also
 --------
 
-:class:`HL.DspNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

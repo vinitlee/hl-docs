@@ -8,7 +8,7 @@ HL.NotificationOptions
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        color? = string,

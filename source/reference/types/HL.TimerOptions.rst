@@ -8,7 +8,7 @@ HL.TimerOptions
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        timeout = integer,

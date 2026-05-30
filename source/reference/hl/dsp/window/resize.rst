@@ -1,38 +1,52 @@
 hl.dsp.window.resize
 ====================
 
-.. function:: hl.dsp.window.resize(...)
+.. function:: hl.dsp.window.resize()
+.. function:: hl.dsp.window.resize(spec)
 
-   Resize.
+   Create a mouse-resize or exact-resize dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.window.resize(...): HL.Dispatcher
+   hl.dsp.window.resize(): HL.Dispatcher
+   hl.dsp.window.resize(spec: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+spec : table, optional
+   Exact resize table. If omitted, creates the mouse resize dispatcher.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+x : number
+   X resize amount. Required in table form.
+
+y : number
+   Y resize amount. Required in table form.
+
+relative : boolean, optional
+   If true, resize relatively.
+
+window : :class:`HL.WindowSelector`, optional
+   Target window.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
 
-See also
---------
+   hl.bind("SUPER + mouse:273", hl.dsp.window.resize())
 
-:class:`HL.DspWindowNamespace`
-   Namespace or API object containing this function.
+   hl.dispatch(hl.dsp.window.resize({
+       x = 80,
+       y = 0,
+       relative = true,
+   }))

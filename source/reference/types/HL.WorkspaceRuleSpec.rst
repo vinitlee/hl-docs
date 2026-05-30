@@ -3,89 +3,81 @@ HL.WorkspaceRuleSpec
 
 .. class:: HL.WorkspaceRuleSpec
 
-   Table describing a WorkspaceRuleSpec value.
+   Table accepted by :func:`hl.workspace_rule`.
 
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
-       animation? = string,
-       border_size? = integer | boolean,
-       decorate? = boolean,
-       default? = boolean,
-       default_name? = string,
-       enabled? = boolean,
-       float_gaps? = integer | HL.CssGap,
-       gaps_in? = integer | HL.CssGap,
-       gaps_out? = integer | HL.CssGap,
-       layout? = string,
-       layout_opts? = table<string, string | number | boolean>,
-       monitor? = string,
-       no_border? = boolean,
-       no_rounding? = boolean,
-       no_shadow? = boolean,
-       on_created_empty? = string,
-       persistent? = boolean,
        workspace = string,
+       enabled = boolean?,
+       monitor = string?,
+       default = boolean?,
+       persistent = boolean?,
+       gaps_in = integer | HL.CssGap?,
+       gaps_out = integer | HL.CssGap?,
+       float_gaps = integer | HL.CssGap?,
+       border_size = integer?,
+       no_border = boolean?,
+       no_rounding = boolean?,
+       decorate = boolean?,
+       no_shadow = boolean?,
+       on_created_empty = string?,
+       default_name = string?,
+       layout = string?,
+       layout_opts = table<string, string | number | boolean>?,
+       animation = string?,
    }
 
 Fields
 ------
 
-animation : string, optional
-   Animation.
-
-border_size : integer | boolean, optional
-   Border size.
-
-decorate : boolean, optional
-   Decorate.
-
-default : boolean, optional
-   Default.
-
-default_name : string, optional
-   Default name.
+workspace : string
+   Workspace selector string. Required.
 
 enabled : boolean, optional
-   Enabled.
-
-float_gaps : integer | :class:`HL.CssGap`, optional
-   Float gaps.
-
-gaps_in : integer | :class:`HL.CssGap`, optional
-   Gaps in.
-
-gaps_out : integer | :class:`HL.CssGap`, optional
-   Gaps out.
-
-layout : string, optional
-   Layout.
-
-layout_opts : table<string, string | number | boolean>, optional
-   Layout opts.
+   Whether the rule is enabled. Defaults to ``true``.
 
 monitor : string, optional
-   Monitor.
+   Monitor assigned to the workspace.
 
-no_border : boolean, optional
-   No border.
-
-no_rounding : boolean, optional
-   No rounding.
-
-no_shadow : boolean, optional
-   No shadow.
-
-on_created_empty : string, optional
-   On created empty.
+default : boolean, optional
+   Mark as a default workspace rule.
 
 persistent : boolean, optional
-   Persistent.
+   Make the workspace persistent.
 
-workspace : string
-   Workspace.
+gaps_in, gaps_out, float_gaps : integer or :class:`HL.CssGap`, optional
+   Gap overrides.
 
-.. TODO: Replace generic field summaries with source-checked behavior.
+border_size : integer, optional
+   Border size override.
+
+no_border, no_rounding, decorate, no_shadow : boolean, optional
+   Decoration-related workspace overrides.
+
+on_created_empty : string, optional
+   Command run when the workspace is created empty.
+
+default_name : string, optional
+   Default workspace name.
+
+layout : string, optional
+   Layout override.
+
+layout_opts : table, optional
+   Layout options table. Keys must be strings; values may be strings, numbers,
+   or booleans.
+
+animation : string, optional
+   Animation override.
+
+.. TODO: Confirm whether every listed field exists in the current source build; this page combines stub fields with source-derived parser behavior.
+
+Used by
+-------
+
+:func:`hl.workspace_rule`
+   Register a workspace rule.

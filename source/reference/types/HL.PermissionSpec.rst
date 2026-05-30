@@ -3,15 +3,15 @@ HL.PermissionSpec
 
 .. class:: HL.PermissionSpec
 
-   Table describing a PermissionSpec value.
+   Table form accepted by :func:`hl.permission`.
 
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
-       binary = string,
+       binary = string, -- or target = string
        type = string,
        mode = string,
    }
@@ -20,12 +20,19 @@ Fields
 ------
 
 binary : string
-   Binary.
+   Binary name. Must not be empty.
+
+target : string, optional
+   Alias for ``binary`` in table form.
 
 type : string
-   Type.
+   One of ``screencopy``, ``cursorpos``, ``plugin``, ``keyboard``, or ``keeb``.
 
 mode : string
-   Mode.
+   One of ``ask``, ``allow``, or ``deny``.
 
-.. TODO: Replace generic field summaries with source-checked behavior.
+Used by
+-------
+
+:func:`hl.permission`
+   Register a dynamic permission rule.

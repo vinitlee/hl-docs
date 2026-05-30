@@ -1,38 +1,44 @@
 hl.dsp.workspace.toggle_special
 ===============================
 
-.. function:: hl.dsp.workspace.toggle_special(...)
+.. function:: hl.dsp.workspace.toggle_special(name?: string)
 
-   Toggle special.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.workspace.toggle_special(...): HL.Dispatcher
+   hl.dsp.workspace.toggle_special(name?: string): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
-
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+name : string, optional
+   Special workspace name. Omit for the default special workspace.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.workspace.toggle_special("scratch"))
 
 See also
 --------
 
-:class:`HL.DspWorkspaceNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

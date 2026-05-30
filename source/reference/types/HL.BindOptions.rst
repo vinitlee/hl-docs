@@ -3,73 +3,91 @@ HL.BindOptions
 
 .. class:: HL.BindOptions
 
-   Table describing options for related API calls.
+   Options table accepted by :func:`hl.bind`.
 
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
-       repeating? = boolean,
-       locked? = boolean,
-       release? = boolean,
-       non_consuming? = boolean,
-       transparent? = boolean,
-       ignore_mods? = boolean,
-       dont_inhibit? = boolean,
-       long_press? = boolean,
-       submap_universal? = boolean,
-       click? = boolean,
-       drag? = boolean,
-       description? = string,
-       desc? = string,
-       device? = {inclusive?: boolean, list?: string[]},
+       repeating = boolean?,
+       locked = boolean?,
+       release = boolean?,
+       non_consuming = boolean?,
+       auto_consuming = boolean?,
+       transparent = boolean?,
+       ignore_mods = boolean?,
+       dont_inhibit = boolean?,
+       long_press = boolean?,
+       submap_universal = boolean?,
+       click = boolean?,
+       drag = boolean?,
+       description = string?,
+       desc = string?,
+       device = {
+           inclusive = boolean?,
+           list = string[]?,
+       }?,
    }
 
 Fields
 ------
 
 repeating : boolean, optional
-   Repeating.
+   Enable repeat behavior.
 
 locked : boolean, optional
-   Locked.
+   Allow the bind while locked.
 
 release : boolean, optional
-   Release.
+   Trigger on key release.
 
 non_consuming : boolean, optional
-   Non consuming.
+   Do not consume the input event.
+
+auto_consuming : boolean, optional
+   Auto-consuming bind behavior.
 
 transparent : boolean, optional
-   Transparent.
+   Make the bind transparent.
 
 ignore_mods : boolean, optional
-   Ignore mods.
+   Ignore active modifiers.
 
 dont_inhibit : boolean, optional
-   Dont inhibit.
+   Do not respect input inhibition.
 
 long_press : boolean, optional
-   Long press.
+   Trigger as a long-press bind.
 
 submap_universal : boolean, optional
-   Submap universal.
+   Apply across submaps.
 
 click : boolean, optional
-   Click.
+   Treat the bind as a click bind. Also implies ``release``.
 
 drag : boolean, optional
-   Drag.
+   Treat the bind as a drag bind. Also implies ``release``.
 
 description : string, optional
-   Description.
+   Description shown for the bind.
 
 desc : string, optional
-   Desc.
+   Short alias for ``description``. Used only if ``description`` is absent.
 
-device : {inclusive?: boolean, list?: string[]}, optional
-   Device.
+device : table, optional
+   Device filter table.
 
-.. TODO: Replace generic field summaries with source-checked behavior.
+Notes
+-----
+
+``click`` and ``drag`` are mutually exclusive. ``long_press`` and ``release``
+are incompatible with ``repeating``. Mouse binds are incompatible with
+``repeating``, ``release``, and ``locked``.
+
+Used by
+-------
+
+:func:`hl.bind`
+   Register a keybind.

@@ -1,38 +1,52 @@
 hl.dsp.window.pseudo
 ====================
 
-.. function:: hl.dsp.window.pseudo(...)
+.. function:: hl.dsp.window.pseudo(spec?: table)
 
-   Pseudo.
+   Set, unset, or toggle pseudo state.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.window.pseudo(...): HL.Dispatcher
+   hl.dsp.window.pseudo(spec?: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+spec : table, optional
+   Toggle-action table.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+window : :class:`HL.WindowSelector`, optional
+   Target window where supported.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.window.pseudo({ action = "toggle" }))
+
+Notes
+-----
+
+.. TODO: Confirm public spelling accepted by the shared toggle-action parser.
 
 See also
 --------
 
-:class:`HL.DspWindowNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

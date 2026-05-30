@@ -1,38 +1,51 @@
 hl.dsp.window.bring_to_top
 ==========================
 
-.. function:: hl.dsp.window.bring_to_top(...)
+.. function:: hl.dsp.window.bring_to_top(spec?: table)
 
-   Bring to top.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.window.bring_to_top(...): HL.Dispatcher
+   hl.dsp.window.bring_to_top(spec?: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
-
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+window : :class:`HL.WindowSelector`, optional
+   Target window where supported.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.window.bring_to_top())
+
+Notes
+-----
+
+Some no-argument window dispatchers still accept an optional ``window`` field through the shared window-upvalue helper when the implementation calls it.
+
+.. TODO: Confirm which of these dispatcher constructors publicly document ``window``.
 
 See also
 --------
 
-:class:`HL.DspWindowNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

@@ -8,7 +8,7 @@ HL.ConfigValueTypes
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        ['animations.enabled'] = boolean,

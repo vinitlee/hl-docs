@@ -8,7 +8,7 @@ HL.WindowQueryFilter
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        class? = string,

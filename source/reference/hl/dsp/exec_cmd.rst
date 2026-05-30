@@ -1,38 +1,54 @@
 hl.dsp.exec_cmd
 ===============
 
-.. function:: hl.dsp.exec_cmd(...)
+.. function:: hl.dsp.exec_cmd(cmd: string, rules?: table)
 
-   Exec cmd.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.exec_cmd(...): HL.Dispatcher
+   hl.dsp.exec_cmd(cmd: string, rules?: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+cmd : string
+   Command to execute. Must not be empty.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+rules : table, optional
+   Window rules to apply to the spawned process.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
+
+   hl.bind("SUPER + F", hl.dsp.exec_cmd("firefox", { float = true }))
+
+Notes
+-----
+
+.. TODO: Document the exact rule table shape accepted by ``rules``.
 
 See also
 --------
 
-:class:`HL.DspNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

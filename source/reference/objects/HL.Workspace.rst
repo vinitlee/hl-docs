@@ -133,3 +133,17 @@ See also
 --------
 
 .. TODO: Add related functions and types.
+
+
+Method notes
+------------
+
+.. method:: get_windows()
+
+   Return windows on this workspace.
+
+.. method:: get_groups()
+
+   Return groups on this workspace.
+
+.. TODO: Confirm exact return shapes from LuaWorkspace.cpp.

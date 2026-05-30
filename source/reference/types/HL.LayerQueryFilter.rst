@@ -8,7 +8,7 @@ HL.LayerQueryFilter
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        monitor? = HL.MonitorSelector,

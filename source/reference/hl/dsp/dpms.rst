@@ -1,38 +1,52 @@
 hl.dsp.dpms
 ===========
 
-.. function:: hl.dsp.dpms(...)
+.. function:: hl.dsp.dpms(spec?: table)
 
-   Dpms.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.dpms(...): HL.Dispatcher
+   hl.dsp.dpms(spec?: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+spec : table, optional
+   Toggle-action table. May include ``monitor``.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+monitor : :class:`HL.MonitorSelector`, optional
+   Monitor to target.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.dpms({ action = "off", monitor = "DP-1" }))
+
+Notes
+-----
+
+.. TODO: Confirm public spelling accepted by the shared toggle-action parser.
 
 See also
 --------
 
-:class:`HL.DspNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

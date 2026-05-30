@@ -1,9 +1,9 @@
 hl.window_rule
 ==============
 
-.. function:: hl.window_rule(spec: HL.WindowRuleSpec)
+.. function:: window_rule(spec)
 
-   Window rule.
+   Register a window rule.
 
 Signature
 ---------
@@ -16,21 +16,35 @@ Parameters
 ----------
 
 spec : :class:`HL.WindowRuleSpec`
-   Spec.
+   Rule table.
 
 Returns
 -------
 
-result : :class:`HL.WindowRule`
-   Return value.
+rule : :class:`HL.WindowRule`
+   Runtime rule object.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.window_rule({
+       name = "float-dialogs",
+       match = { class = "pavucontrol" },
+       float = true,
+       center = true,
+   })
+
+Notes
+-----
+
+Match values may be strings, booleans, or numbers. Named rules are reused on later calls.
+
+.. TODO: Expand known static and dynamic rule effect descriptions from rule engine metadata.
 
 See also
 --------
 
-:class:`HL.API`
-   Namespace or API object containing this function.
+:class:`HL.WindowRuleSpec`
+   Input table accepted by this function.

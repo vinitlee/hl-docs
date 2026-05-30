@@ -8,7 +8,7 @@ HL.Box
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
        x = number,

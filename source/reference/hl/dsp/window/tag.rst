@@ -1,38 +1,47 @@
 hl.dsp.window.tag
 =================
 
-.. function:: hl.dsp.window.tag(...)
+.. function:: hl.dsp.window.tag(spec: table)
 
-   Tag.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.window.tag(...): HL.Dispatcher
+   hl.dsp.window.tag(spec: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+tag : string
+   Tag to apply.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+window : :class:`HL.WindowSelector`, optional
+   Target window.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.window.tag({ tag = "work" }))
 
 See also
 --------
 
-:class:`HL.DspWindowNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

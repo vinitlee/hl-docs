@@ -1,38 +1,52 @@
 hl.dsp.cursor.move_to_corner
 ============================
 
-.. function:: hl.dsp.cursor.move_to_corner(...)
+.. function:: hl.dsp.cursor.move_to_corner(spec: table)
 
-   Move to corner.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.cursor.move_to_corner(...): HL.Dispatcher
+   hl.dsp.cursor.move_to_corner(spec: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+corner : integer
+   Corner index.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+window : :class:`HL.WindowSelector`, optional
+   Target window.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.cursor.move_to_corner({ corner = 0 }))
+
+Notes
+-----
+
+.. TODO: Document corner index meanings.
 
 See also
 --------
 
-:class:`HL.DspCursorNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

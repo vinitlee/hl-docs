@@ -1,38 +1,47 @@
 hl.dsp.cursor.move
 ==================
 
-.. function:: hl.dsp.cursor.move(...)
+.. function:: hl.dsp.cursor.move(spec: table)
 
-   Move.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.cursor.move(...): HL.Dispatcher
+   hl.dsp.cursor.move(spec: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+x : number
+   X delta.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+y : number
+   Y delta.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.cursor.move({ x = 10, y = -10 }))
 
 See also
 --------
 
-:class:`HL.DspCursorNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.

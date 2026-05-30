@@ -3,29 +3,44 @@ HL.WindowRuleSpec
 
 .. class:: HL.WindowRuleSpec
 
-   Table describing a WindowRuleSpec value.
+   Table accepted by :func:`hl.window_rule`.
 
 Shape
 -----
 
-.. code-block:: lua
+.. code-block:: text
 
    {
-       enabled? = boolean,
-       match? = table<string, string | number | boolean>,
-       name? = string,
+       name = string?,
+       enabled = boolean?,
+       match = table<string, string | number | boolean>?,
+       -- window rule effect fields
    }
 
 Fields
 ------
 
-enabled : boolean, optional
-   Enabled.
-
-match : table<string, string | number | boolean>, optional
-   Match.
-
 name : string, optional
-   Name.
+   Rule name. Named rules are reused by later calls with the same name.
 
-.. TODO: Replace generic field summaries with source-checked behavior.
+enabled : boolean, optional
+   Whether the rule is enabled. Defaults to ``true``.
+
+match : table, optional
+   Match table. Keys are rule match property names; values may be strings,
+   numbers, or booleans.
+
+Additional fields
+-----------------
+
+All other fields are interpreted as window rule effect names. Static effects
+are parsed through Hyprland's window rule effect descriptors; dynamic effects
+are looked up through the window effect registry.
+
+.. TODO: Expand the complete list of known static effects and accepted value types.
+
+Used by
+-------
+
+:func:`hl.window_rule`
+   Register a window rule.

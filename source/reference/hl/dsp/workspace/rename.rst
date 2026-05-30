@@ -1,38 +1,47 @@
 hl.dsp.workspace.rename
 =======================
 
-.. function:: hl.dsp.workspace.rename(...)
+.. function:: hl.dsp.workspace.rename(spec: table)
 
-   Rename.
+   Create a dispatcher.
 
 Signature
 ---------
 
 .. code-block:: text
 
-   hl.dsp.workspace.rename(...): HL.Dispatcher
+   hl.dsp.workspace.rename(spec: table): HL.Dispatcher
 
 Parameters
 ----------
 
-... : any
-   Arguments accepted by this function.
+workspace : :class:`HL.WorkspaceSelector`
+   Workspace to rename.
 
-.. TODO: Refine accepted arguments from the Hyprland Lua source.
+name : string, optional
+   New name. Omit or nil to clear.
 
 Returns
 -------
 
-result : :class:`HL.Dispatcher`
-   Return value.
+dispatcher : :class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
 
 Examples
 --------
 
-.. TODO: Add a minimal example.
+.. code-block:: lua
+
+   hl.dispatch(hl.dsp.workspace.rename({ workspace = 3, name = "web" }))
 
 See also
 --------
 
-:class:`HL.DspWorkspaceNamespace`
-   Namespace or API object containing this function.
+:class:`HL.Dispatcher`
+   Dispatcher object returned by this function.
+
+:func:`hl.bind`
+   Bind a dispatcher to a key.
+
+:func:`hl.dispatch`
+   Execute a dispatcher immediately.
