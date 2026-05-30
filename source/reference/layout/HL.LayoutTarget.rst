@@ -29,8 +29,8 @@ Attributes
 Methods
 -------
 
-.. method:: place(box)
-.. method:: set_box(box)
+.. method:: HL.LayoutTarget.place(box)
+.. method:: HL.LayoutTarget.set_box(box)
 
    Place this layout target into ``box``.
 

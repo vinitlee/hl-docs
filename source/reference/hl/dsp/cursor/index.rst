@@ -1,9 +1,6 @@
 hl.dsp.cursor
 =============
 
-.. class:: HL.DspCursorNamespace
-
-   Namespace accessible as ``hl.dsp.cursor``.
 
 Members
 -------
@@ -11,5 +8,6 @@ Members
 .. toctree::
    :maxdepth: 1
 
+   HL.DspCursorNamespace
    move
    move_to_corner

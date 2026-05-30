@@ -15,7 +15,7 @@ Signature
 Returns
 -------
 
-result : :class:`HL.Workspace`[]
+result : list of :class:`HL.Workspace`
    Return value.
 
 Examples

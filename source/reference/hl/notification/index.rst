@@ -1,9 +1,6 @@
 hl.notification
 ===============
 
-.. class:: HL.NotificationNamespace
-
-   Namespace accessible as ``hl.notification``.
 
 Members
 -------
@@ -11,5 +8,6 @@ Members
 .. toctree::
    :maxdepth: 1
 
+   HL.NotificationNamespace
    create
    get

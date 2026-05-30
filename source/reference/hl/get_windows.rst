@@ -21,7 +21,7 @@ filters : :class:`HL.WindowQueryFilter`, optional
 Returns
 -------
 
-result : :class:`HL.Window`[]
+result : list of :class:`HL.Window`
    Return value.
 
 Examples

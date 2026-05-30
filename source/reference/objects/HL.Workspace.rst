@@ -138,11 +138,11 @@ See also
 Method notes
 ------------
 
-.. method:: get_windows()
+:meth:`HL.Workspace.get_windows`
 
    Return windows on this workspace.
 
-.. method:: get_groups()
+:meth:`HL.Workspace.get_groups`
 
    Return groups on this workspace.
 

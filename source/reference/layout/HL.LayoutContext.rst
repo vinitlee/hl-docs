@@ -16,26 +16,26 @@ Attributes
 
 .. attribute:: HL.LayoutContext.targets
 
-   :type: :class:`HL.LayoutTarget`[]
+   :type: list of :class:`HL.LayoutTarget`
 
    Targets.
 
 Methods
 -------
 
-.. method:: grid_cell(i, cols, rows=None)
+.. method:: HL.LayoutContext.grid_cell(i, cols, rows=None)
 
    Return a grid cell box from the layout area.
 
-.. method:: column(i, n)
+.. method:: HL.LayoutContext.column(i, n)
 
    Return the ``i`` th column from ``n`` columns.
 
-.. method:: row(i, n)
+.. method:: HL.LayoutContext.row(i, n)
 
    Return the ``i`` th row from ``n`` rows.
 
-.. method:: split(box, side, ratio)
+.. method:: HL.LayoutContext.split(box, side, ratio)
 
    Split ``box`` and return the requested side.
 

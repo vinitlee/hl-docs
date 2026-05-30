@@ -21,80 +21,65 @@ HL.API
 Configuration
 -------------
 
-.. toctree::
-   :maxdepth: 1
-
-   config
-   device
-   gesture
-   layer_rule
-   monitor
-   permission
-   window_rule
-   workspace_rule
-   animation
-   curve
+* :func:`hl.config`
+* :func:`hl.device`
+* :func:`hl.gesture`
+* :func:`hl.layer_rule`
+* :func:`hl.monitor`
+* :func:`hl.permission`
+* :func:`hl.window_rule`
+* :func:`hl.workspace_rule`
+* :func:`hl.animation`
+* :func:`hl.curve`
 
 Keybinds and dispatch
 ---------------------
 
-.. toctree::
-   :maxdepth: 1
-
-   bind
-   dispatch
-   unbind
-   dsp/index
+* :func:`hl.bind`
+* :func:`hl.dispatch`
+* :func:`hl.unbind`
+* :class:`HL.DspNamespace`
 
 Queries
 -------
 
-.. toctree::
-   :maxdepth: 1
-
-   get_active_monitor
-   get_active_special_workspace
-   get_active_window
-   get_active_workspace
-   get_config
-   get_current_submap
-   get_cursor_pos
-   get_last_window
-   get_last_workspace
-   get_layers
-   get_monitor
-   get_monitor_at
-   get_monitor_at_cursor
-   get_monitors
-   get_urgent_window
-   get_window
-   get_windows
-   get_workspace
-   get_workspace_windows
-   get_workspaces
+* :func:`hl.get_active_monitor`
+* :func:`hl.get_active_special_workspace`
+* :func:`hl.get_active_window`
+* :func:`hl.get_active_workspace`
+* :func:`hl.get_config`
+* :func:`hl.get_current_submap`
+* :func:`hl.get_cursor_pos`
+* :func:`hl.get_last_window`
+* :func:`hl.get_last_workspace`
+* :func:`hl.get_layers`
+* :func:`hl.get_monitor`
+* :func:`hl.get_monitor_at`
+* :func:`hl.get_monitor_at_cursor`
+* :func:`hl.get_monitors`
+* :func:`hl.get_urgent_window`
+* :func:`hl.get_window`
+* :func:`hl.get_windows`
+* :func:`hl.get_workspace`
+* :func:`hl.get_workspace_windows`
+* :func:`hl.get_workspaces`
 
 Events and runtime
 ------------------
 
-.. toctree::
-   :maxdepth: 1
-
-   define_submap
-   env
-   exec_cmd
-   on
-   timer
-   version
+* :func:`hl.define_submap`
+* :func:`hl.env`
+* :func:`hl.exec_cmd`
+* :func:`hl.on`
+* :func:`hl.timer`
+* :func:`hl.version`
 
 Namespaces
 ----------
 
-.. toctree::
-   :maxdepth: 1
-
-   layout/index
-   notification/index
-   plugin/index
+* :class:`HL.LayoutNamespace`
+* :class:`HL.NotificationNamespace`
+* :class:`HL.PluginNamespace`
 
 See also
 --------

@@ -1,9 +1,6 @@
 hl.dsp.window
 =============
 
-.. class:: HL.DspWindowNamespace
-
-   Namespace accessible as ``hl.dsp.window``.
 
 Members
 -------
@@ -11,6 +8,7 @@ Members
 .. toctree::
    :maxdepth: 1
 
+   HL.DspWindowNamespace
    alter_zorder
    bring_to_top
    center

@@ -2,7 +2,6 @@ hl.define_submap
 ================
 
 .. function:: hl.define_submap(name, fn)
-.. function:: hl.define_submap(name, reset, fn)
 
    Define a named keybind submap.
 

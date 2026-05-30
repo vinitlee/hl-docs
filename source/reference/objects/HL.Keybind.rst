@@ -167,11 +167,11 @@ Attributes
 Methods
 -------
 
-.. method:: is_enabled()
+.. method:: HL.Keybind.is_enabled()
 
    Return whether the keybind is enabled.
 
-.. method:: set_enabled(enabled)
+.. method:: HL.Keybind.set_enabled(enabled)
 
    Enable or disable the keybind.
 
@@ -181,7 +181,7 @@ Methods
    enabled : boolean
       New enabled state.
 
-.. method:: remove()
-.. method:: unbind()
+.. method:: HL.Keybind.remove()
+.. method:: HL.Keybind.unbind()
 
    Remove the keybind.

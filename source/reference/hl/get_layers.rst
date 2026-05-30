@@ -21,7 +21,7 @@ filters : :class:`HL.LayerQueryFilter`, optional
 Returns
 -------
 
-result : :class:`HL.LayerSurface`[]
+result : list of :class:`HL.LayerSurface`
    Return value.
 
 Examples

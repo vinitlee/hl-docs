@@ -1,7 +1,6 @@
 hl.dsp.window.resize
 ====================
 
-.. function:: hl.dsp.window.resize()
 .. function:: hl.dsp.window.resize(spec)
 
    Create a mouse-resize or exact-resize dispatcher.

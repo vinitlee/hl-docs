@@ -1,9 +1,6 @@
 hl.dsp.workspace
 ================
 
-.. class:: HL.DspWorkspaceNamespace
-
-   Namespace accessible as ``hl.dsp.workspace``.
 
 Members
 -------
@@ -11,6 +8,7 @@ Members
 .. toctree::
    :maxdepth: 1
 
+   HL.DspWorkspaceNamespace
    move
    rename
    swap_monitors

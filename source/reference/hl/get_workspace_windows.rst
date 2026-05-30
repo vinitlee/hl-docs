@@ -21,7 +21,7 @@ workspace : :class:`HL.WorkspaceSelector`
 Returns
 -------
 
-result : :class:`HL.Window`[]
+result : list of :class:`HL.Window`
    Return value.
 
 Examples

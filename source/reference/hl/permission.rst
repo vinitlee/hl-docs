@@ -2,7 +2,6 @@ hl.permission
 =============
 
 .. function:: hl.permission(binary, type, mode)
-.. function:: hl.permission(spec)
 
    Add a dynamic permission rule.
 

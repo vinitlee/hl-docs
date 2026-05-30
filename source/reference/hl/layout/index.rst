@@ -1,9 +1,6 @@
 hl.layout
 =========
 
-.. class:: HL.LayoutNamespace
-
-   Namespace accessible as ``hl.layout``.
 
 Members
 -------
@@ -11,4 +8,5 @@ Members
 .. toctree::
    :maxdepth: 1
 
+   HL.LayoutNamespace
    register

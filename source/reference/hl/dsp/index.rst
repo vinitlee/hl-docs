@@ -1,9 +1,6 @@
 hl.dsp
 ======
 
-.. class:: HL.DspNamespace
-
-   Namespace accessible as ``hl.dsp``.
 
 Members
 -------
@@ -11,6 +8,7 @@ Members
 .. toctree::
    :maxdepth: 1
 
+   HL.DspNamespace
    dpms
    event
    exec_cmd

@@ -15,7 +15,7 @@ Signature
 Returns
 -------
 
-result : :class:`HL.Monitor`[]
+result : list of :class:`HL.Monitor`
    Return value.
 
 Examples

@@ -1,9 +1,6 @@
 hl.dsp.group
 ============
 
-.. class:: HL.DspGroupNamespace
-
-   Namespace accessible as ``hl.dsp.group``.
 
 Members
 -------
@@ -11,6 +8,7 @@ Members
 .. toctree::
    :maxdepth: 1
 
+   HL.DspGroupNamespace
    active
    lock
    lock_active

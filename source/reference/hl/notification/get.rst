@@ -15,7 +15,7 @@ Signature
 Returns
 -------
 
-result : :class:`HL.Notification`[]
+result : list of :class:`HL.Notification`
    Return value.
 
 Examples

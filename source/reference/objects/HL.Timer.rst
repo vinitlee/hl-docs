@@ -8,15 +8,15 @@ HL.Timer
 Methods
 -------
 
-.. method:: is_enabled()
+.. method:: HL.Timer.is_enabled()
 
    Return whether the timer is enabled.
 
-.. method:: set_enabled(enabled)
+.. method:: HL.Timer.set_enabled(enabled)
 
    Enable or disable the timer.
 
-.. method:: set_timeout(timeout)
+.. method:: HL.Timer.set_timeout(timeout)
 
    Change the timer timeout.
 

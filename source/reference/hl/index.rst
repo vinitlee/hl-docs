@@ -5,6 +5,14 @@ Root Hyprland Lua API object.
 
 The global variable ``hl`` is an instance of :class:`HL.API`.
 
+Overview
+--------
+
+.. toctree::
+   :maxdepth: 1
+
+   HL.API
+
 Configuration
 -------------
 
