@@ -5,4 +5,4 @@ exclude_patterns = []
 primary_domain = "py"
 default_role = "any"
 
-html_theme = "alabaster"
+html_theme = "shibuya"
