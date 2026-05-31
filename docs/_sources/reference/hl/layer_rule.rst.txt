@@ -1,7 +1,7 @@
 hl.layer_rule
 =============
 
-.. function:: layer_rule(spec)
+.. function:: hl.layer_rule(spec)
 
    Register a layer rule.
 

@@ -1,7 +1,7 @@
 hl.workspace_rule
 =================
 
-.. function:: workspace_rule(spec)
+.. function:: hl.workspace_rule(spec)
 
    Register a workspace rule.
 

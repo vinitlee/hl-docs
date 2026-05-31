@@ -283,6 +283,8 @@ data-aria-dark="Switch to auto color mode">
 </li>
         <li><a href="reference/hl/get_workspaces.html#hl.get_workspaces">hl.get_workspaces()</a>
 </li>
+        <li><a href="reference/hl/layer_rule.html#hl.layer_rule">hl.layer_rule()</a>
+</li>
         <li><a href="reference/hl/layout/register.html#hl.layout.register">hl.layout.register()</a>
 </li>
         <li><a href="reference/hl/monitor.html#hl.monitor">hl.monitor()</a>
@@ -303,11 +305,9 @@ data-aria-dark="Switch to auto color mode">
 </li>
         <li><a href="reference/hl/version.html#hl.version">hl.version()</a>
 </li>
-        <li><a href="reference/hl/layer_rule.html#layer_rule">layer_rule()</a>
+        <li><a href="reference/hl/window_rule.html#hl.window_rule">hl.window_rule()</a>
 </li>
-        <li><a href="reference/hl/window_rule.html#window_rule">window_rule()</a>
-</li>
-        <li><a href="reference/hl/workspace_rule.html#workspace_rule">workspace_rule()</a>
+        <li><a href="reference/hl/workspace_rule.html#hl.workspace_rule">hl.workspace_rule()</a>
 </li>
       </ul></li>
   </ul></td>
@@ -815,8 +815,6 @@ data-aria-dark="Switch to auto color mode">
         <li><a href="reference/hl/dsp/window/tag.html#hl.dsp.window.tag">built-in function</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     hl.dsp.window.toggle_swallow()
 
@@ -824,6 +822,8 @@ data-aria-dark="Switch to auto color mode">
         <li><a href="reference/hl/dsp/window/toggle_swallow.html#hl.dsp.window.toggle_swallow">built-in function</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     hl.dsp.workspace.move()
 
@@ -1035,6 +1035,13 @@ data-aria-dark="Switch to auto color mode">
 </li>
       <li><a href="reference/objects/HL.Keybind.html#HL.Keybind">HL.Keybind (built-in class)</a>
 </li>
+      <li>
+    hl.layer_rule()
+
+      <ul>
+        <li><a href="reference/hl/layer_rule.html#hl.layer_rule">built-in function</a>
+</li>
+      </ul></li>
       <li><a href="reference/types/HL.LayerQueryFilter.html#HL.LayerQueryFilter">HL.LayerQueryFilter (built-in class)</a>
 </li>
       <li><a href="reference/objects/HL.LayerRule.html#HL.LayerRule">HL.LayerRule (built-in class)</a>
@@ -1147,6 +1154,13 @@ data-aria-dark="Switch to auto color mode">
       </ul></li>
       <li><a href="reference/objects/HL.Window.html#HL.Window">HL.Window (built-in class)</a>
 </li>
+      <li>
+    hl.window_rule()
+
+      <ul>
+        <li><a href="reference/hl/window_rule.html#hl.window_rule">built-in function</a>
+</li>
+      </ul></li>
       <li><a href="reference/types/HL.WindowQueryFilter.html#HL.WindowQueryFilter">HL.WindowQueryFilter (built-in class)</a>
 </li>
       <li><a href="reference/objects/HL.WindowRule.html#HL.WindowRule">HL.WindowRule (built-in class)</a>
@@ -1157,6 +1171,13 @@ data-aria-dark="Switch to auto color mode">
 </li>
       <li><a href="reference/objects/HL.Workspace.html#HL.Workspace">HL.Workspace (built-in class)</a>
 </li>
+      <li>
+    hl.workspace_rule()
+
+      <ul>
+        <li><a href="reference/hl/workspace_rule.html#hl.workspace_rule">built-in function</a>
+</li>
+      </ul></li>
       <li><a href="reference/types/HL.WorkspaceRuleSpec.html#HL.WorkspaceRuleSpec">HL.WorkspaceRuleSpec (built-in class)</a>
 </li>
       <li><a href="reference/types/HL.WorkspaceSelector.html#HL.WorkspaceSelector">HL.WorkspaceSelector (built-in class)</a>
@@ -1231,17 +1252,10 @@ data-aria-dark="Switch to auto color mode">
 </li>
       <li><a href="reference/objects/HL.LayerSurface.html#HL.LayerSurface.layer">layer (HL.LayerSurface attribute)</a>
 </li>
-      <li>
-    layer_rule()
-
-      <ul>
-        <li><a href="reference/hl/layer_rule.html#layer_rule">built-in function</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/objects/HL.Window.html#HL.Window.layout">layout (HL.Window attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/layout/HL.LayoutProvider.html#HL.LayoutProvider.layout_msg">layout_msg() (HL.LayoutProvider method)</a>
 </li>
       <li><a href="reference/objects/HL.Group.html#HL.Group.locked">locked (HL.Group attribute)</a>
@@ -1468,28 +1482,14 @@ data-aria-dark="Switch to auto color mode">
 </li>
       <li><a href="reference/objects/HL.Monitor.html#HL.Monitor.width">width (HL.Monitor attribute)</a>
 </li>
-      <li><a href="reference/layout/HL.LayoutTarget.html#HL.LayoutTarget.window">window (HL.LayoutTarget attribute)</a>
-</li>
-      <li>
-    window_rule()
-
-      <ul>
-        <li><a href="reference/hl/window_rule.html#window_rule">built-in function</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/layout/HL.LayoutTarget.html#HL.LayoutTarget.window">window (HL.LayoutTarget attribute)</a>
+</li>
       <li><a href="reference/objects/HL.Workspace.html#HL.Workspace.windows">windows (HL.Workspace attribute)</a>
 </li>
       <li><a href="reference/objects/HL.Window.html#HL.Window.workspace">workspace (HL.Window attribute)</a>
 </li>
-      <li>
-    workspace_rule()
-
-      <ul>
-        <li><a href="reference/hl/workspace_rule.html#workspace_rule">built-in function</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 

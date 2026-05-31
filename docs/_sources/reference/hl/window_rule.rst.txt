@@ -1,7 +1,7 @@
 hl.window_rule
 ==============
 
-.. function:: window_rule(spec)
+.. function:: hl.window_rule(spec)
 
    Register a window rule.
 
