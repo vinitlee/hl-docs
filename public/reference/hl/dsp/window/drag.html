@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>hl.dsp.window.drag - Hyprland Lua API documentation</title><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="hl.dsp.window.float" href="float.html" /><link rel="prev" title="hl.dsp.window.deny_from_group" href="deny_from_group.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/shibuya.css?v=9454f7d5" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+  <meta property="og:type" content="website"/><meta property="og:title" content="hl.dsp.window.drag"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../../../../index.html">
+      
+      
+      <strong>Hyprland Lua API</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">hl</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../HL.API.html">HL.API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config.html">hl.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../device.html">hl.device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gesture.html">hl.gesture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../layer_rule.html">hl.layer_rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../monitor.html">hl.monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../permission.html">hl.permission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../window_rule.html">hl.window_rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../workspace_rule.html">hl.workspace_rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../animation.html">hl.animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../curve.html">hl.curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bind.html">hl.bind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dispatch.html">hl.dispatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unbind.html">hl.unbind</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">hl.dsp</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../HL.DspNamespace.html">HL.DspNamespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dpms.html">hl.dsp.dpms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../event.html">hl.dsp.event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exec_cmd.html">hl.dsp.exec_cmd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exec_raw.html">hl.dsp.exec_raw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../exit.html">hl.dsp.exit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../focus.html">hl.dsp.focus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../force_idle.html">hl.dsp.force_idle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../force_renderer_reload.html">hl.dsp.force_renderer_reload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../global.html">hl.dsp.global</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../layout.html">hl.dsp.layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../no_op.html">hl.dsp.no_op</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../pass.html">hl.dsp.pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../send_key_state.html">hl.dsp.send_key_state</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../send_shortcut.html">hl.dsp.send_shortcut</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../submap.html">hl.dsp.submap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cursor/index.html">hl.dsp.cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../group/index.html">hl.dsp.group</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">hl.dsp.window</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../workspace/index.html">hl.dsp.workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_active_monitor.html">hl.get_active_monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_active_special_workspace.html">hl.get_active_special_workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_active_window.html">hl.get_active_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_active_workspace.html">hl.get_active_workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_config.html">hl.get_config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_current_submap.html">hl.get_current_submap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_cursor_pos.html">hl.get_cursor_pos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_last_window.html">hl.get_last_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_last_workspace.html">hl.get_last_workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_layers.html">hl.get_layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_monitor.html">hl.get_monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_monitor_at.html">hl.get_monitor_at</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_monitor_at_cursor.html">hl.get_monitor_at_cursor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_monitors.html">hl.get_monitors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_urgent_window.html">hl.get_urgent_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_window.html">hl.get_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_windows.html">hl.get_windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_workspace.html">hl.get_workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_workspace_windows.html">hl.get_workspace_windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../get_workspaces.html">hl.get_workspaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../define_submap.html">hl.define_submap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../env.html">hl.env</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../exec_cmd.html">hl.exec_cmd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../on.html">hl.on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../timer.html">hl.timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../version.html">hl.version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../layout/index.html">hl.layout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../layout/HL.LayoutNamespace.html">HL.LayoutNamespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../layout/register.html">hl.layout.register</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../notification/index.html">hl.notification</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../notification/HL.NotificationNamespace.html">HL.NotificationNamespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notification/create.html">hl.notification.create</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../notification/get.html">hl.notification.get</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../plugin/index.html">hl.plugin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../plugin/HL.PluginNamespace.html">HL.PluginNamespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plugin/load.html">hl.plugin.load</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../objects/index.html">Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.Dispatcher.html">HL.Dispatcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.EventSubscription.html">HL.EventSubscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.Group.html">HL.Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.Keybind.html">HL.Keybind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.LayerRule.html">HL.LayerRule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.LayerSurface.html">HL.LayerSurface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.Monitor.html">HL.Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.Notification.html">HL.Notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.Timer.html">HL.Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.Window.html">HL.Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.WindowRule.html">HL.WindowRule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../objects/HL.Workspace.html">HL.Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../types/index.html">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.EventName.html">HL.EventName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.ConfigKey.html">HL.ConfigKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.MonitorSelector.html">HL.MonitorSelector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.WorkspaceSelector.html">HL.WorkspaceSelector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.WindowSelector.html">HL.WindowSelector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.Vec2Like.html">HL.Vec2Like</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.CssGap.html">HL.CssGap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.Gradient.html">HL.Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.Vec2.html">HL.Vec2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.Box.html">HL.Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.BindOptions.html">HL.BindOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.TimerOptions.html">HL.TimerOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.GestureSpec.html">HL.GestureSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.PermissionSpec.html">HL.PermissionSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.NotificationOptions.html">HL.NotificationOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.LayerQueryFilter.html">HL.LayerQueryFilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.WindowQueryFilter.html">HL.WindowQueryFilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.DeviceSpec.html">HL.DeviceSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.LayerRuleSpec.html">HL.LayerRuleSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.MonitorSpec.html">HL.MonitorSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.WindowRuleSpec.html">HL.WindowRuleSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.WorkspaceRuleSpec.html">HL.WorkspaceRuleSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/HL.ConfigValueTypes.html">HL.ConfigValueTypes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../layout/index.html">Layout Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../layout/HL.LayoutContext.html">HL.LayoutContext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../layout/HL.LayoutProvider.html">HL.LayoutProvider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../layout/HL.LayoutTarget.html">HL.LayoutTarget</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#hl.dsp.window.drag"><code class="docutils literal notranslate">dsp.window.drag()</span></code></a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#returns">Returns</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../../../index.html"><span itemprop="name">Hyprland Lua API</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../../index.html"><span itemprop="name">Reference</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html"><span itemprop="name">hl</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="3" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">hl.dsp</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="4" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">hl.dsp.window</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="5" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">hl.dsp.window.drag</strong>
+        <meta itemprop="position" content="6" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section id="hl-dsp-window-drag">
+<h1>hl.dsp.window.drag<a class="headerlink" href="#hl-dsp-window-drag" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="hl.dsp.window.drag">
+<span class="sig-prename descclassname"><span class="pre">hl.dsp.window.</span></span><span class="sig-name descname"><span class="pre">drag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec?</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hl.dsp.window.drag" title="Link to this definition">¶</a></dt>
+<dd><p>Create a dispatcher.</p>
+</dd></dl>
+
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">hl.dsp.window.drag(spec?: table): HL.Dispatcher
+</span></pre></div>
+</div>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h2>
+<dl>
+<dt>window<span class="classifier"><a class="reference internal" href="../../../types/HL.WindowSelector.html#HL.WindowSelector" title="HL.WindowSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">HL.WindowSelector</span></code></a>, optional</span></dt><dd><p>Target window where supported.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h2>
+<dl>
+<dt>dispatcher<span class="classifier"><a class="reference internal" href="../../../objects/HL.Dispatcher.html#HL.Dispatcher" title="HL.Dispatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">HL.Dispatcher</span></code></a></span></dt><dd><p>Dispatcher object returned by this function.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nv">hl</span><span class="p">.</span><span class="nf">dispatch</span><span class="p">(</span><span class="nv">hl</span><span class="p">.</span><span class="py">dsp</span><span class="p">.</span><span class="py">window</span><span class="p">.</span><span class="nf">drag</span><span class="p">())</span>
+</span></pre></div>
+</div>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h2>
+<p>Some no-argument window dispatchers still accept an optional <code class="docutils literal notranslate"><span class="pre">window</span></code> field through the shared window-upvalue helper when the implementation calls it.</p>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt><a class="reference internal" href="../../../objects/HL.Dispatcher.html#HL.Dispatcher" title="HL.Dispatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">HL.Dispatcher</span></code></a></dt><dd><p>Dispatcher object returned by this function.</p>
+</dd>
+<dt><a class="reference internal" href="../../bind.html#hl.bind" title="hl.bind"><code class="xref py py-func docutils literal notranslate"><span class="pre">hl.bind()</span></code></a></dt><dd><p>Bind a dispatcher to a key.</p>
+</dd>
+<dt><a class="reference internal" href="../../dispatch.html#hl.dispatch" title="hl.dispatch"><code class="xref py py-func docutils literal notranslate"><span class="pre">hl.dispatch()</span></code></a></dt><dd><p>Execute a dispatcher immediately.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="deny_from_group.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">hl.dsp.window.deny_from_group</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="float.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">hl.dsp.window.float</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p></p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../../_static/shibuya.js?v=50760d75"></script></body>
+</html>
