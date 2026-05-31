@@ -5,6 +5,119 @@ HL.ConfigKey
 
    Alias type.
 
+Configuration hierarchy
+-----------------------
+
+The following example shows the structure accepted by :func:`hl.config`.
+
+Values shown are the default values used by Hyprland. The comment after each
+entry indicates the expected type.
+
+.. code-block:: lua
+
+   {
+       general = {
+           gaps_in                  = 5,          -- integer | HL.CssGap
+           gaps_out                 = 20,         -- integer | HL.CssGap
+           border_size             = 2,          -- integer
+
+           resize_on_border        = false,      -- boolean
+           extend_border_grab_area = 15,         -- integer
+           hover_icon_on_border    = true,       -- boolean
+
+           allow_tearing           = false,      -- boolean
+           layout                  = "dwindle", -- string
+       },
+
+       decoration = {
+           rounding           = 10,    -- integer
+           active_opacity     = 1.0,   -- number
+           inactive_opacity   = 1.0,   -- number
+           fullscreen_opacity = 1.0,   -- number
+
+           dim_inactive       = false, -- boolean
+           dim_strength       = 0.5,   -- number
+
+           shadow = {
+               enabled       = true,  -- boolean
+               range         = 4,     -- integer
+               render_power  = 3,     -- integer
+               sharp         = false, -- boolean
+           },
+
+           blur = {
+               enabled             = true,  -- boolean
+               size                = 8,     -- integer
+               passes              = 1,     -- integer
+               ignore_opacity      = false, -- boolean
+               new_optimizations   = true,  -- boolean
+           },
+       },
+
+       animations = {
+           enabled = true, -- boolean
+       },
+
+       input = {
+           kb_layout     = "us", -- string
+           kb_variant    = "",   -- string
+           kb_model      = "",   -- string
+           kb_options    = "",   -- string
+           kb_rules      = "",   -- string
+
+           follow_mouse  = 1,    -- integer
+           sensitivity   = 0.0,  -- number
+
+           repeat_rate   = 25,   -- integer
+           repeat_delay  = 600,  -- integer
+       },
+
+       cursor = {
+           no_hardware_cursors  = false, -- boolean
+           sync_gsettings_theme = true,  -- boolean
+       },
+
+       misc = {
+           force_default_wallpaper  = -1,    -- integer | boolean
+           disable_hyprland_logo    = false, -- boolean
+           disable_splash_rendering = false, -- boolean
+
+           focus_on_activate        = false, -- boolean
+
+           mouse_move_enables_dpms = false, -- boolean
+           key_press_enables_dpms  = false, -- boolean
+
+           disable_autoreload      = false, -- boolean
+       },
+
+       binds = {
+           pass_mouse_when_bound    = false, -- boolean
+           scroll_event_delay       = 300,   -- integer
+           workspace_back_and_forth = false, -- boolean
+       },
+
+       render = {
+           explicit_sync      = 1,    -- integer
+           explicit_sync_kms  = 1,    -- integer
+           direct_scanout     = true, -- boolean
+       },
+
+       xwayland = {
+           force_zero_scaling     = false, -- boolean
+           use_nearest_neighbor   = false, -- boolean
+           create_abstract_socket = true,  -- boolean
+       },
+
+       opengl = {
+           nvidia_anti_flicker = false, -- boolean
+       },
+
+       ecosystem = {
+           no_update_news  = false, -- boolean
+           no_donation_nag = false, -- boolean
+       },
+   }
+
 Accepted values
 ---------------
 
